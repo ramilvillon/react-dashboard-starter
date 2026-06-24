@@ -1,1 +1,19 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# TanStack Router generated tree
+src/routeTree.gen.ts
+
+# Local-only docs (specs/plans)
 docs/
+
+# Superpowers scratch/ledger
+.superpowers/
