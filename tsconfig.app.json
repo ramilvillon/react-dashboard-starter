@@ -3,7 +3,7 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "baseUrl": ".",
     "paths": { "@/*": ["./src/*"] },
-    "ignoreDeprecations": "6.0",
+    "ignoreDeprecations": "6.0", // Silences TS6 baseUrl deprecation warning
     "target": "es2023",
     "lib": ["ES2023", "DOM"],
     "module": "esnext",
