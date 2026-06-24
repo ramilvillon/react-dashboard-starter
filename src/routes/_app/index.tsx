@@ -1,5 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router"
+import {
+  OverviewPage,
+  metricsQueryOptions,
+  revenueSeriesQueryOptions,
+} from "@/features/dashboard"
 
 export const Route = createFileRoute("/_app/")({
-  component: () => <div className="p-8 text-2xl font-bold">Overview</div>,
+  loader: ({ context }) => {
+    void context.queryClient.ensureQueryData(metricsQueryOptions)
+    void context.queryClient.ensureQueryData(revenueSeriesQueryOptions)
+  },
+  component: OverviewPage,
 })
