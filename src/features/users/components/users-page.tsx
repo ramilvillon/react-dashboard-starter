@@ -6,8 +6,8 @@ import { UsersTable } from "@/features/users/components/users-table"
 export function UsersPage() {
   const { data } = useSuspenseQuery(usersQueryOptions)
   return (
-    <div className="grid gap-6">
-      <h1 className="text-2xl font-bold">Users</h1>
+    <div className="grid gap-5">
+      <h1 className="font-display text-3xl font-bold tracking-tight">Users</h1>
       <UsersTable columns={userColumns} data={data} />
     </div>
   )

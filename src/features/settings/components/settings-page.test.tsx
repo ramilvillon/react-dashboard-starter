@@ -21,8 +21,11 @@ describe("SettingsPage", () => {
     expect(screen.getByText("Appearance")).toBeInTheDocument()
   })
 
-  it("renders a theme selector", () => {
+  it("renders a theme selector with light/dark/system options", () => {
     renderPage()
-    expect(screen.getByLabelText("Theme")).toBeInTheDocument()
+    expect(screen.getByRole("group", { name: "Theme" })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: "Light" })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: "Dark" })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: "System" })).toBeInTheDocument()
   })
 })

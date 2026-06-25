@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useAuth } from "@/features/auth"
+import pixelAvatar from "@/assets/pixel-avatar.svg"
 
 export function LoginForm() {
   const { login } = useAuth()
@@ -29,9 +30,14 @@ export function LoginForm() {
   }
 
   return (
-    <Card className="w-full max-w-sm">
-      <CardHeader>
-        <CardTitle>Sign in</CardTitle>
+    <Card className="w-full max-w-sm rounded-3xl border-0 shadow-lg">
+      <CardHeader className="items-center text-center">
+        <img
+          src={pixelAvatar}
+          alt=""
+          className="pixelated mb-2 size-16 rounded-2xl bg-secondary p-1"
+        />
+        <CardTitle className="font-display text-2xl">Welcome back</CardTitle>
         <CardDescription>Use demo@example.com / password</CardDescription>
       </CardHeader>
       <CardContent>
@@ -45,7 +51,7 @@ export function LoginForm() {
             <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
           {error && <p className="text-sm text-destructive" role="alert">{error}</p>}
-          <Button type="submit" disabled={pending}>
+          <Button type="submit" disabled={pending} className="h-11 rounded-full">
             {pending ? "Signing in…" : "Sign in"}
           </Button>
         </form>

@@ -1,20 +1,23 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { cn } from "@/lib/utils"
 import { useTheme } from "@/components/theme/theme-provider"
 import { useAuth } from "@/features/auth"
+
+const themes = ["light", "dark", "system"] as const
 
 export function SettingsPage() {
   const { user } = useAuth()
   const { theme, setTheme } = useTheme()
 
   return (
-    <div className="grid max-w-2xl gap-6">
-      <h1 className="text-2xl font-bold">Settings</h1>
+    <div className="grid max-w-2xl gap-5">
+      <h1 className="font-display text-3xl font-bold tracking-tight">Settings</h1>
 
-      <Card>
+      <Card className="rounded-3xl border-0 shadow-sm">
         <CardHeader>
-          <CardTitle>Profile</CardTitle>
+          <CardTitle className="font-display">Profile</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid gap-2">
@@ -31,23 +34,34 @@ export function SettingsPage() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="rounded-3xl border-0 shadow-sm">
         <CardHeader>
-          <CardTitle>Appearance</CardTitle>
+          <CardTitle className="font-display">Appearance</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-2">
-          <Label htmlFor="theme">Theme</Label>
-          <select
-            id="theme"
+          <Label>Theme</Label>
+          <div
+            role="group"
             aria-label="Theme"
-            value={theme}
-            onChange={(e) => setTheme(e.target.value as "light" | "dark" | "system")}
-            className="h-9 w-48 rounded-md border bg-background px-3 text-sm"
+            className="inline-flex w-fit rounded-full bg-secondary p-1"
           >
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-            <option value="system">System</option>
-          </select>
+            {themes.map((t) => (
+              <button
+                key={t}
+                type="button"
+                aria-pressed={theme === t}
+                onClick={() => setTheme(t)}
+                className={cn(
+                  "rounded-full px-4 py-1.5 text-sm font-medium transition-colors",
+                  theme === t
+                    ? "bg-card text-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                {t[0].toUpperCase() + t.slice(1)}
+              </button>
+            ))}
+          </div>
         </CardContent>
       </Card>
     </div>

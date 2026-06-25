@@ -50,9 +50,9 @@ export function UsersTable<TData, TValue>({
         placeholder="Filter by name…"
         value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
         onChange={(e) => table.getColumn("name")?.setFilterValue(e.target.value)}
-        className="max-w-sm"
+        className="h-11 max-w-sm rounded-full bg-card px-4 shadow-sm"
       />
-      <div className="rounded-md border">
+      <div className="overflow-hidden rounded-3xl bg-card shadow-sm">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((hg) => (
@@ -92,6 +92,7 @@ export function UsersTable<TData, TValue>({
         <Button
           variant="outline"
           size="sm"
+          className="rounded-full bg-card"
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
@@ -100,6 +101,7 @@ export function UsersTable<TData, TValue>({
         <Button
           variant="outline"
           size="sm"
+          className="rounded-full bg-card"
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
