@@ -52,7 +52,7 @@ export function UsersTable<TData, TValue>({
         onChange={(e) => table.getColumn("name")?.setFilterValue(e.target.value)}
         className="h-11 max-w-sm rounded-full bg-card px-4 shadow-sm"
       />
-      <div className="overflow-hidden rounded-3xl bg-card shadow-sm">
+      <div className="min-w-0 overflow-hidden rounded-3xl bg-card shadow-sm">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((hg) => (
