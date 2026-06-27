@@ -14,7 +14,7 @@ const chartConfig = {
 
 export function RevenueChart({ data }: { data: SeriesPoint[] }) {
   return (
-    <div className="rounded-3xl bg-card p-6 shadow-sm">
+    <div className="min-w-0 rounded-3xl bg-card p-6 shadow-sm">
       <h2 className="font-display text-lg font-bold">Revenue</h2>
       <p className="mb-4 text-sm text-muted-foreground">Desktop vs. mobile, last 6 months</p>
       <ChartContainer config={chartConfig} className="min-h-[260px] w-full">
